@@ -26,7 +26,7 @@ body{
     justify-content: space-between;
     display: flex;
     position: fixed;
-    z-index: 2;
+    z-index:10000;
     top:0;
     left: 0;
     right: 0;
@@ -197,6 +197,7 @@ body{
 
 #container{
     background-color: #141414;
+    overflow: hidden;
 }
 
 #container  .container__movieHots{
@@ -299,11 +300,13 @@ body{
 
 
 #container .container__movieListToiec{
-    
+    /* overflow-x: hidden; */
 }
 .container__movieListToiec .container__movieListToiec__ToiecList{
     padding:0 4%;
-    overflow: hidden;
+    position: relative;
+    /* z-index: 100;\ */
+    
 }
 
 .container__movieListToiec__ToiecList .ToiecList__ToiecVideos{
@@ -326,6 +329,51 @@ body{
     font-size: 0;
     height: 14rem;
     white-space: nowrap;
+    position: relative;
+    
+    
+}
+
+.ToeicVideos__VideoList .prev{
+    position: absolute;
+    top: 0;
+    left: -4%;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    width: 4%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    font-weight: 100;
+}
+.ToeicVideos__VideoList .prev:hover{
+    opacity: 0.7;
+}
+.ToeicVideos__VideoList .next{
+    position: absolute;
+    top: 0;
+    right: -4%;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    width: 4%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    font-weight: 100;
+   
+}
+.ToeicVideos__VideoList .next:hover{
+    opacity: 0.7;
 }
 .ToeicVideos__VideoList .VideoList__Videos{
     position: relative;
@@ -333,20 +381,16 @@ body{
     padding: 0 0.2vw    ;
     width: 20%;
     height: 100%;
+    transition: transform 0.7s ease-out;
 
 }
-.VideoList__Videos.videosPrev{
-    /* opacity: 0.5; */
-}
-.VideoList__Videos.videosNext{
-    /* opacity: 0.5; */
-}
+
 .VideoList__Videos .Videos__video{
     line-height: 1.2;
     display: inline-block;
     position: relative;
     width: 100%;
-    transition: all 1s linear;
+    transition: all 0.5s linear;
     height:100%;
     
 }
@@ -360,27 +404,27 @@ body{
     border-radius: 4px;
     background-color: #141414;
     z-index: 100;
-    transition: all 1s linear;
-  /* overflow: hidden; */
+    transition: all 0.5s linear;
+  overflow: hidden;
 }
 .Videos__video__content.videoScale{
 
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
-    transition: all 1s linear;
+    transition: all 0.5s linear;
 
     height: 280%;
     top: -80%;
     left: -25%;
     right:  -25%;;
-    z-index: 1000;
+    z-index: 10000;
     
   
 }
 .Videos__video__content .video__content__img{
 
     height:100%;
-    transition: opancity 1s linear;
-    transition: all 1s linear;
+    transition: opancity 0.5s linear;
+    transition: all 0.5s linear;
    
 }
 .video__content__img img{
@@ -395,9 +439,9 @@ body{
     display: none;
     width: 100%;
     
-    transition: opancity 1s linear;
-    transition: height 1s linear;
-    transition: width 1s linear;
+    transition: opancity 0.5s linear;
+    transition: height 0.5s linear;
+    transition: width 0.5s linear;
 }
 .video__content__video video{
     
@@ -405,4 +449,46 @@ body{
     height:100%;
     object-fit: cover;
     object-position: 0 0;
+}
+.Videos__video__content .video__content__des{
+    font-size: 24px;
+    color: white;
+}
+
+.video__content__des .content__des__body{
+    padding: 20px;
+    padding-right: 40px;
+}
+.content__des__body .des__body__listIcon{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.des__body__listIcon .listIcon__icon{
+    background-color: white;
+    display: flex;
+    border-radius: 50%;
+    width:40px;
+    height: 40px;
+    align-items:center;
+    justify-content: center;  
+    
+   
+}
+
+.listIcon__icon i{
+    color: #141414;
+    
+
+}
+.listIcon__icon:hover{
+    opacity: 0.7;
+}
+.content__des__body .des__body__title{
+    margin-top: 4vh;
+}
+.des__body__title p{
+    white-space: normal;
+    font-size: 18px;
+    line-height: 40px;
 }
